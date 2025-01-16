@@ -59,35 +59,29 @@
             }
         });
 
-        function getanswer(question = "") {
-    var storedAnswers = [];
-    var currentIndex = 0;
+    async function getAnswer(question = "") {
+    let answers = [];
+    let success = false;
 
-    // Görev ismini temizle
-    question = question.replace("+", "").replace("`", "").trim();
+    question = question.replace("+", "").replace("`", "");
     console.log("Question : ---" + question + "---");
 
-    // JSON'dan cevapları al
-    fetch("https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/CinnconList.json", { cache: "no-store" })
-        .then(response => response.json())
-        .then(data => {
-            storedAnswers = data[question] ? [data[question]] : [];
-            if (storedAnswers.length === 0) {
-                console.log(`${logPrefix}JSON'da bu görev için cevap bulunamadı.`, styles.error);
-                backbutton.click();
-            } else {
-                tryNextAnswer();
-            }
-        });
+    try {
+        const response = await fetch(
+            "https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/CinnconList.json",
+            { cache: "no-store" }
+        );
+        const rawData = await response.text();
+        const bigObj = JSON.parse(rawData);
 
-    function tryNextAnswer() {
-        if (currentIndex >= storedAnswers.length) {
-            console.log(`${logPrefix}Tüm cevaplar denendi, görev atlanıyor.`, styles.error);
-            backbutton.click();
-            return;
-        }
+        // Görev adını bul ve cevapları al
+        answers = bigObj[question] || []; // Görev yoksa boş bir dizi döner
+    } catch (err) {
+        console.error("Error fetching or parsing JSON: ", err.message);
+    }
 
-        const currentAnswer = storedAnswers[currentIndex];
+    // Cevapları sırayla deneme
+    for (let answer of answers) {
         const input = document.evaluate(
             "/html/body/div/div[1]/div[2]/div[3]/div[2]/div/div[3]/div/div/input",
             document,
@@ -97,31 +91,33 @@
         ).singleNodeValue;
 
         if (input) {
-            input.value = currentAnswer;
+            input.value = answer; // JSON'dan alınan cevap
             const inputEvent = new Event("input", { bubbles: true });
             input.dispatchEvent(inputEvent);
 
             const submitButton = Array.from(document.querySelectorAll("button")).find(
                 (el) => el.textContent.includes("Submit")
             );
-
             if (submitButton) {
                 submitButton.click();
+                await new Promise((resolve) => setTimeout(resolve, 2000)); // Cevabı kontrol için bekleme
 
-                setTimeout(() => {
-                    const errorMessage = document.querySelector("p.error");
-                    if (errorMessage && errorMessage.textContent.includes("invalid_answer")) {
-                        console.log(`${logPrefix}Cevap yanlış: ${currentAnswer}`, styles.error);
-                        currentIndex++;
-                        tryNextAnswer();
-                    } else {
-                        console.log(`${logPrefix}Cevap doğru: ${currentAnswer}`, styles.success);
-                    }
-                }, 1000);
+                const errorText = Array.from(document.querySelectorAll("p")).find(
+                    (el) => el.textContent.includes("Invalid")
+                );
+
+                if (!errorText) {
+                    console.log(`Doğru cevap bulundu: ${answer}`);
+                    success = true;
+                    break; // Doğru cevabı bulunca döngüyü sonlandır
+                }
             }
-        } else {
-            backbutton.click();
         }
+    }
+
+    if (!success) {
+        console.log("Tüm cevaplar denendi, ancak geçerli cevap bulunamadı.");
+        backbutton.click(); // Görevi atla
     }
 }
 
