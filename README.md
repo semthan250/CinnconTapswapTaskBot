@@ -1,24 +1,21 @@
-# TapswapTasks
-Tapswap Auto Claim Cinema Tasks Script 
+# Tapswap Görev Botu
+Tapswap Görevlerini otomotikmen Yapar
 
-## ⚠️Warning
-I am not responsible for your account. Please consider the potential risks before using this bot.
+## ⚠️UYARI
+Hesabınızdan sorumlu değiliz. Lütfen bu botu kullanmadan önce potansiyel riskleri göz önünde bulundurun.
 
-## How to run
-* Install extension in your browser [Violentmonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag?hl=be)
-* Import tapswaptasks.js to violentmonkey extension
-* Open tapswap and turn off internet and reload
-* After few seconds view not loaded error
-* Copy link and open in browser
+## Nasıl Çalıştırılır
+* Chrome Tarayıcınıza Violentmonkey uzantısını ekleyin[Violentmonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag?hl=be)
+* tapswaptasks.js dosyasını violentmonkey uzantısına aktarın
+* Android telefonunuzdan Tapswap'ı açın, tam oyunu açarken interneti kapatın
+* Birkaç saniye sonra bir hata alacaksınız 
+* Aldıgınız hatadan  Bağlantıyı kopyala ve Linki Bilgisayarina aktarıp Chrome tarayıcısında aç
 
-## Learn
+## DETAYLI BİLGİ
 * [Get Telegram MiniGame Query ID using Chrome](https://youtu.be/r0Ulqev-9M4)
 * [Add Violentmonkey Extension to Chrome and Import TapSwap Script](https://youtu.be/4q9ebuRfeiA)
 
-## ☕Buy me a coffee
-```
-USDT(TRC20): TRjdnBWpS1xT4a2oKQdFsM3AAc6TxVmqGZ
-TON: UQBmpnet6lYCLXObDwJLitDuMcPIocJIKVxg6pLvaFv5fRmO
-```
+## ☕DAHA FAZLA BOT İÇİN TELEGRAM KANALIMIZI TAKİP ETMEYİ UNUTMAYIN 
 
-![](http://visit.parselecom.com/Api/Visit/glad-tidings/TapswapTasks/458797)
+http://t.me/cinnconbots
+
