@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name         Cinncon Tapswap Task Bot
-// @namespace    https://t.me/cinnconbots
+// @name         Cinncon Bots Tapswap
+// @namespace    http://shahanpanel.link
 // @version      2.10
 // @description  Tapswap Auto Task :)
 // @author       Cinncon Bots
 // @match        https://app.tapswap.club/*
 // @icon         https://www.softportal.com/en/scr/1089/icons/icon_src.png
 // @grant        GM_webRequest
-// @downloadURL  https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/tampermonkey.js
-// @updateURL    https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/tampermonkey.js
-// @homepage     https://github.com/semthan250/CinnconTapswapTaskBot
+// @downloadURL  https://raw.githubusercontent.com/HamedAp/Tapswap-Cinema/main/tampermonkey.js
+// @updateURL    https://raw.githubusercontent.com/HamedAp/Tapswap-Cinema/main/tampermonkey.js
+// @homepage     https://github.com/HamedAp/Tapswap-Cinema/
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 (function () {
@@ -74,7 +74,7 @@ console.error = console.warn = console.info = console.debug = () => { };
       soal = soal.replace("`", "");
       console.log("Shahan Question : ---" + soal + "---");
     fetch(
-  "https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/CinnconList.json"
+  "https://raw.githubusercontent.com/HamedAp/Tapswap-Cinema/main/list.json"
 ).then(function (response) {
   response.text().then(function (text) {
     storedText = text;
