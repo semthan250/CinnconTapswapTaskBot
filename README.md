@@ -6,7 +6,7 @@ Hesabınızdan sorumlu değiliz. Lütfen bu botu kullanmadan önce potansiyel ri
 
 ## Nasıl Çalıştırılır
 * Chrome Tarayıcınıza Violentmonkey uzantısını ekleyin[Violentmonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag?hl=be)
-* tapswaptasks.js dosyasını violentmonkey uzantısına aktarın
+* tampermonkey.js dosyasını violentmonkey uzantısına aktarın
 * Android telefonunuzdan Tapswap'ı açın, tam oyunu açarken interneti kapatın
 * Birkaç saniye sonra bir hata alacaksınız 
 * Aldıgınız hatadan  Bağlantıyı kopyala ve Linki Bilgisayarina aktarıp Chrome tarayıcısında aç
