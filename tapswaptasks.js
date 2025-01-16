@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         TapswapTasks
+// @name         Cinncon Tapswap Task Bot
 // @namespace    https://github.com/glad-tidings/
 // @version      3.3
-// @description  Tapswap Auto Task Claim
+// @description  Cinncon Tapswap Task Claim Bot
 // @author       Glad Tidings
 // @match        https://app.tapswap.club/*
 // @icon         https://raw.githubusercontent.com/glad-tidings/TapswapTasks/refs/heads/main/icon.jpeg
 // @grant        None
-// @homepage     https://github.com/glad-tidings/TapswapTasks/
+// @homepage     https://github.com/semthan250/CinnconTapswapTaskBot
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
@@ -68,7 +68,7 @@
     console.log("Question : ---" + question + "---");
 
     // JSON'dan cevapları al
-    fetch("https://raw.githubusercontent.com/glad-tidings/TapswapTasks/refs/heads/main/list.json", { cache: "no-store" })
+    fetch("https://github.com/semthan250/CinnconTapswapTaskBot/blob/main/CinnconList.json", { cache: "no-store" })
         .then(response => response.json())
         .then(data => {
             storedAnswers = data[question] ? [data[question]] : [];
